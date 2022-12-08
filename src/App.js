@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { ThemeProvider } from "@emotion/react";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./Routes/routes";
+
+import { Box, createTheme, CssBaseline } from "@mui/material";
 
 function App() {
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: "#001d3d",
+        light: "#003566",
+        extraLight: "#014f86",
+      },
+      secondary: {
+        main: "#06d6a0",
+      },
+    },
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box bgcolor={"#001d3d"}>
+      <ThemeProvider theme={theme}>
+        <RouterProvider router={router} />
+        <CssBaseline />
+      </ThemeProvider>
+    </Box>
   );
 }
 
