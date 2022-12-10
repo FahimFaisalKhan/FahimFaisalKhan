@@ -5,6 +5,7 @@ import Banner from "./Banner/Banner";
 import Languages from "./Languages/Languages";
 import FrameWork from "./FrameWorks/FrameWork";
 import Technologies from "./Technologies/Technologies";
+import Projects from "./Projects/Projects";
 
 const Home = () => {
   return (
@@ -12,7 +13,7 @@ const Home = () => {
       <Box
         minHeight={"100vh"}
         sx={{
-          background: `radial-gradient(100% 100% at left , #001d3d 0% , #001d3d 79.9%,#003566 80%  , #001d3d 80.2%,#001d3d 100%)`,
+          background: `radial-gradient(100% 100% at left , #00072d 0% , #00072d 79.9%,#001c55 80%  , #00072d 80.2%,#00072d 100%)`,
         }}
       >
         <Banner />
@@ -45,8 +46,21 @@ const Home = () => {
         sx={{
           margin: "0 auto",
           py: 15,
+          borderBottom: "3px solid transparent",
+          borderImage: `linear-gradient(to right, transparent 0%, transparent 8%, #06d6a0 , transparent 92%)`,
+          borderImageSlice: 1,
+        }}
+        maxWidth="1600px"
+      >
+        <Projects />
+      </Box>
+      <Box
+        sx={{
+          margin: "0 auto",
+          py: 15,
 
           mb: 15,
+          display: { xs: "none", lg: "block" },
         }}
         maxWidth="1600px"
       >

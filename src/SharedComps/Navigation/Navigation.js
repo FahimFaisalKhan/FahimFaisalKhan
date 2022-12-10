@@ -13,6 +13,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import { keyframes } from "@mui/material";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import { Height } from "@mui/icons-material";
 
 const drawerWidth = 240;
 const navItems = ["Home", "About", "Contact"];
@@ -20,6 +24,21 @@ const navItems = ["Home", "About", "Contact"];
 function Navigation(props) {
   const { window, children } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const handleDownload = () => {
+    const config = { responseType: "blob" };
+    axios.get("Fahim Faisal Khan.pdf", config).then((response) => {
+      const href = URL.createObjectURL(response.data);
+
+      const link = document.createElement("a");
+      link.href = href;
+      link.setAttribute("download", "Fahim Faisal Khan");
+      document.body.appendChild(link);
+      link.click();
+
+      document.body.removeChild(link);
+      URL.revokeObjectURL(href);
+    });
+  };
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -30,11 +49,16 @@ function Navigation(props) {
       <Divider />
       <List>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
+          <Link
+            to={`/${item.toLowerCase()}`}
+            style={{ textDecoration: "none" }}
+          >
+            <ListItem key={item} disablePadding>
+              <ListItemButton sx={{ textAlign: "center" }}>
+                <ListItemText primary={item} sx={{ color: "primary.main" }} />
+              </ListItemButton>
+            </ListItem>
+          </Link>
         ))}
       </List>
     </Box>
@@ -42,6 +66,21 @@ function Navigation(props) {
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
+
+  const shadowAn = keyframes`
+  0%{
+    opacity: 0;
+    
+  }
+  50%{
+    opacity:1;
+    
+  }
+  100%{
+    opacity: 0;
+   
+  }
+  `;
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -51,6 +90,7 @@ function Navigation(props) {
           boxShadow: 0,
           borderBottom: "2px solid ",
           borderColor: "primary.light",
+          py: 0.5,
         }}
       >
         <Toolbar>
@@ -65,21 +105,55 @@ function Navigation(props) {
           </IconButton>
 
           <Box sx={{ display: { xs: "none", sm: "block", margin: "0 auto" } }}>
-            {navItems.map((item) => (
-              <Button
-                key={item}
-                sx={{
-                  color: "grey.400",
-                  mr: 5,
-                  "&:focus": {
-                    color: "secondary.main",
-                  },
-                }}
-              >
-                {item}
-              </Button>
-            ))}
+            {navItems.map((item, i) => {
+              return (
+                <Link
+                  to={`/${item.toLowerCase()}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <Button
+                    key={item}
+                    sx={{
+                      color: "grey.400",
+                      mr: i !== 2 && 5,
+                      "&:focus": {
+                        color: "secondary.main",
+                      },
+                    }}
+                  >
+                    {item}
+                  </Button>
+                </Link>
+              );
+            })}
           </Box>
+
+          <Button
+            onClick={handleDownload}
+            variant="outlined"
+            color="secondary"
+            sx={{
+              position: "fixed",
+              zIndex: 20,
+              right: 50,
+              borderRadius: "8px",
+              // animation: `${shadowAnm} 3s ease-in-out infinite`,
+              "&::after": {
+                content: "''",
+                position: "absolute",
+                width: "100%",
+                height: "100%",
+                borderRadius: "8px",
+                boxShadow:
+                  "rgb(47, 249, 197,0.4) 0 0 0 5px, rgb(121, 251, 218 ,0.3) 0 0 0 12px , rgb(195, 253, 239,0.2) 0 0 0 17px , rgb(244, 255, 252,0.1) 0 0 0 22px",
+                opacity: 0,
+
+                animation: `${shadowAn}  4s ease-in-out 0.5s infinite backwards`,
+              },
+            }}
+          >
+            Download Resume
+          </Button>
         </Toolbar>
       </AppBar>
       <Box component="nav">
@@ -102,7 +176,7 @@ function Navigation(props) {
           {drawer}
         </Drawer>
       </Box>
-      <Box component="main" sx={{ px: 3, width: "100%" }} minHeight={"100vh"}>
+      <Box component="main" sx={{ px: 0, width: "100%" }} minHeight={"100vh"}>
         <Toolbar />
         {children}
       </Box>

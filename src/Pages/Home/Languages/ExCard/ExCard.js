@@ -27,6 +27,10 @@ export default function ExCard({ topic }) {
   const { language, features, description } = topic;
   return (
     <MyCard
+      data-aos="fade-up"
+      data-aos-delay="50"
+      data-aos-duration="1000"
+      data-aos-easing="ease-in-out"
       sx={{
         borderRadius: "2px",
         minHeight: "27rem",

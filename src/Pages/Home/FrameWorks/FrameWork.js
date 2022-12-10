@@ -1,6 +1,7 @@
 import React from "react";
 import { Grid, Typography } from "@mui/material";
 import FwCard from "./FwCard/FwCard";
+import { Margin } from "@mui/icons-material";
 
 const frameworks = [
   {
@@ -39,9 +40,9 @@ const FrameWork = () => {
       >
         Libraries & Frameworks
       </Typography>
-      <Grid container spacing={8}>
+      <Grid container spacing={12}>
         {frameworks.map((fw, index) => (
-          <Grid key={index} item xs={3}>
+          <Grid key={index} item xs={12} md={6} lg={3} sx={{ height: "24rem" }}>
             <FwCard fw={fw} />
           </Grid>
         ))}

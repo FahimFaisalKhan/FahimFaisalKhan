@@ -47,7 +47,7 @@ const Languages = () => {
       </Typography>
       <Grid container spacing={8}>
         {arr.map((i, index) => (
-          <Grid item xs={3} marginTop={index % 2 !== 0 && 10}>
+          <Grid item xs={12} md={6} lg={3} marginTop={index % 2 !== 0 && 10}>
             <ExCard topic={i} />
           </Grid>
         ))}

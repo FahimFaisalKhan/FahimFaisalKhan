@@ -1,15 +1,15 @@
 import { Box, keyframes, styled, Typography } from "@mui/material";
 
-import bootstrap from "../../../Static/Images/bootstrap.png";
+import bootstrap from "../../../Static/Images/bootstrap.svg";
 import daisyui from "../../../Static/Images/daisyUI.svg";
 import firebase from "../../../Static/Images/firebase.svg";
-import heroku from "../../../Static/Images/heroku.png";
-import mongodb from "../../../Static/Images/mongodb.png";
+import heroku from "../../../Static/Images/heroku.svg";
+import mongodb from "../../../Static/Images/mongodb.svg";
 import netlify from "../../../Static/Images/netlify.svg";
-import npm from "../../../Static/Images/npm.png";
-import tailwind from "../../../Static/Images/tailwind.png";
+import npm from "../../../Static/Images/npm.svg";
+import tailwind from "../../../Static/Images/tailwind.svg";
 import tanstack from "../../../Static/Images/tanstack.png";
-import postgresql from "../../../Static/Images/postgresql.png";
+import postgresql from "../../../Static/Images/postgresql.svg";
 import mysql from "../../../Static/Images/mysql.png";
 import scikit from "../../../Static/Images/scikitlearn.png";
 import pandas from "../../../Static/Images/pandas.svg";
@@ -28,14 +28,17 @@ const TechContainer = styled(Box)(({ theme }) => ({
   position: "relative",
   // border: "2px dotted #000000",
   borderRadius: "50%",
-  width: "full",
-  height: "50vh",
-  animation: `${spin} 30s linear infinite`,
+  width: "100vh",
+  height: "100vh",
+  margin: "0 auto",
+
+  background: "radial-gradient(#00072d , #001c55  , #00072d )",
+  animation: `${spin} 90s linear infinite`,
 }));
 const TechCircle = styled(Box)(({ theme }) => ({
   position: "absolute",
-  left: "48%",
-  top: "50%",
+  left: "45.8%",
+  top: "45.8%",
 
   borderRadius: "50%",
 }));
@@ -44,64 +47,73 @@ const dob = [
   bootstrap,
   daisyui,
   firebase,
-  heroku,
+  postgresql,
   mongodb,
   netlify,
-  npm,
+  vercel,
   tailwind,
   tanstack,
-  postgresql,
+  heroku,
   mysql,
   scikit,
   pandas,
-  vercel,
+  npm,
 ];
 
 const Technologies = () => {
   return (
-    <div>
+    <div style={{ position: "relative" }}>
       <Typography
         component="h1"
         variant="p"
         gutterBottom={true}
         align="center"
         sx={{
-          color: "secondary.main",
-          mb: 15,
           fontWeight: 200,
-          fontSize: "2.5rem",
+          fontSize: "1.7rem",
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          width: "15rem",
+          height: "15rem",
+          textAlign: "left",
+          borderRadius: "50%",
+          zIndex: 50,
+          color: "info.main",
+          border: "1px solid #001c55",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
         }}
       >
-        Technologies
+        <Box component={"p"} sx={{ ml: 3.5 }}>
+          Technologies I feel comfortable to work with
+        </Box>
       </Typography>
       <TechContainer>
         {dob.map((d, i) => {
-          const spin = keyframes`
-         
-          to {
-    transform: rotate(-${i * 30}deg) ;
-  }
-`;
           return (
             <TechCircle
               sx={{
-                transform: `rotate(${i * 25.7 + 25.7}deg) translateX(340px)`,
+                transform: `rotate(${i * 25.5 + 25.5}deg) translateX(380px)`,
                 // animation: `${spin} 5s infinite linear`,
               }}
             >
               <Box
                 component={"img"}
                 src={d}
-                width="5rem"
-                height="4rem"
+                width="5.5rem"
+                height="5rem"
                 sx={{
-                  transform: `rotate(-${i * 25.7 + 25.7}deg)`,
+                  borderRadius: "20%",
+                  transform: `rotate(-${i * 25.5 + 25.5}deg)`,
                   animation: `${keyframes`
 
                             to {
-                      transform: rotate(-${382 + i * 25.7}deg ) ;
+                      transform: rotate(-${383 + i * 25.5}deg ) ;
                     }
-                  `} 30s linear infinite `,
+                  `} 90s linear infinite `,
                 }}
               />
             </TechCircle>

@@ -7,6 +7,8 @@ import {
   ImageListItem,
   Stack,
   Fade,
+  Zoom,
+  Button,
 } from "@mui/material";
 
 import jsImage from "../../../Static/Images/js.png";
@@ -16,14 +18,16 @@ import pythonImage from "../../../Static/Images/python.png";
 // import { Box } from "@mui/system";
 import React from "react";
 import me from "../../../Static/Images/me.png";
-import { color, fontSize, height, positions } from "@mui/system";
+import { color, fontSize, height, keyframes, positions } from "@mui/system";
 import { fontGrid } from "@mui/material/styles/cssUtils";
 
 const MyBanner = styled(Box)(
-  (props) =>
+  ({ theme }) =>
     `
     
     display: flex;
+  
+    
     align-items:center;
 
 `
@@ -32,11 +36,12 @@ const Item = styled(ImageListItem)(
   ({ theme }) => `
   background :radial-gradient(ellipse at left bottom, ${theme.palette.primary.main} 0%,${theme.palette.primary.main} 20%, ${theme.palette.primary.light} 70%,  ${theme.palette.primary.main}  100%);
 
-  width: 27rem;
+  
   position:relative;
   
   border: 2px solid  ${theme.palette.primary.extraLight};
   border-radius:5px;
+  
 
 
   
@@ -47,11 +52,27 @@ const Item = styled(ImageListItem)(
 );
 
 const Banner = () => {
+  const moveinLeft = keyframes`from{
+    opacity : 0;
+    transform:translateX(-10rem);
+  }
+  to{
+    opacity: 1;
+    transform:translateX(0);
+  }`;
+  const moveinRight = keyframes`from{
+    opacity : 0;
+    transform:translateX(10rem);
+  }
+  to{
+    opacity: 1;
+    transform:translateX(0);
+  }`;
   return (
-    <MyBanner>
+    <MyBanner sx={{ flexDirection: { xs: "column", md: "row" } }}>
       <Box
         sx={{
-          width: "44%",
+          width: { xs: "100%", md: "44%" },
           height: "80vh",
         }}
       >
@@ -60,7 +81,7 @@ const Banner = () => {
           sx={{
             bgcolor: "transparent",
 
-            backgroundImage: `linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,29,61,1) 80%) , url(${me})`,
+            backgroundImage: `linear-gradient(180deg, rgba(0,0,0,0) 0%, #00072d 80%) , url(${me})`,
             boxShadow: 0,
             backgroundSize: "cover",
             height: "100%",
@@ -84,6 +105,7 @@ const Banner = () => {
               fontWeight: 700,
               color: "secondary.main",
               textTransform: "capitalize",
+              animation: `${moveinLeft} 2s linear`,
             }}
           >
             Hello
@@ -95,45 +117,46 @@ const Banner = () => {
               fontWeight: 200,
               color: "info.light",
               textTransform: "capitalize",
+              animation: `${moveinRight} 2s linear`,
             }}
           >
             I'm Fahim Faisal
           </Typography>
         </div>
 
-        <ImageList cols={1} gap={20}>
-          <Item
-            sx={{
-              "&:hover::after": {
-                display: "flex",
-                opacity: 1,
-                top: 0,
-              },
-
-              "&::after": {
-                content: "'kopa'",
-                height: "100%",
-                width: "100%",
-                position: "absolute",
-                background:
-                  "radial-gradient(ellipse at left bottom, #001d3d 0%,#001d3d 20%, #003566 70%,  #001d3d  100%)",
-                top: "10rem",
-                display: "none",
-                justifyContent: "center",
-                alignItems: "center",
-                fontSize: "3rem",
-                color: "primary.main",
-                opacity: 0,
-                transition: "all 3s",
-              },
-            }}
+        <ImageList
+          cols={1}
+          gap={20}
+          sx={{ maxWidth: "100vw", overflow: "hidden" }}
+        >
+          <Zoom
+            in={true}
+            style={{ transitionDelay: "300ms", transitionDuration: "1s" }}
           >
-            <Box component="img" src={jsImage} alt="" loading="lazy" />
-          </Item>
-
-          <Item sx={{ ml: 8 }}>
-            <Box component="img" src={pythonImage} alt="" loading="lazy" />
-          </Item>
+            <Item sx={{ width: { sm: "27rem" } }}>
+              <Box
+                component="img"
+                src={jsImage}
+                alt=""
+                loading="lazy"
+                sx={{ maxWidth: "100vw" }}
+              />
+            </Item>
+          </Zoom>
+          <Zoom
+            in={true}
+            style={{ transitionDelay: "300ms", transitionDuration: "1s" }}
+          >
+            <Item sx={{ ml: { lg: 8 }, width: { sm: "27rem" } }}>
+              <Box
+                component="img"
+                src={pythonImage}
+                alt=""
+                loading="lazy"
+                sx={{ maxWidth: "100vw" }}
+              />
+            </Item>
+          </Zoom>
         </ImageList>
       </Box>
     </MyBanner>

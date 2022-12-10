@@ -1,9 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import "aos/dist/aos.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "@fontsource/public-sans";
+import AOS from "aos";
+
+AOS.init();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

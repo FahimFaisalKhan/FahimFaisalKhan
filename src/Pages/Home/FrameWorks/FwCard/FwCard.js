@@ -6,6 +6,7 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import styled from "@emotion/styled";
+import "./FwCard.css";
 
 const bull = (
   <Box
@@ -14,23 +15,6 @@ const bull = (
   >
     •
   </Box>
-);
-const MyCard = styled(Card)(
-  ({ theme }) => `
-    background :radial-gradient(ellipse at left bottom, ${theme.palette.primary.main} 0%,${theme.palette.primary.main} 20%, ${theme.palette.primary.light} 70%,  ${theme.palette.primary.main}  100%);
-  
-   
-    position:relative;
-    
-    border: 2px solid  ${theme.palette.primary.extraLight};
-    border-radius:5px;
-  
-  
-    
-  
-   
-  
-  `
 );
 
 export default function FwCard({ fw }) {
@@ -41,7 +25,7 @@ export default function FwCard({ fw }) {
         {/* <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
           Word of the Day
         </Typography> */}
-        <Typography variant="h5" component="div">
+        <Typography variant="h5" component="div" sx={{ color: "info.light" }}>
           {/* be{bull}nev{bull}o{bull}lent */}
           {framework}
         </Typography>
@@ -60,18 +44,18 @@ export default function FwCard({ fw }) {
     </React.Fragment>
   );
   return (
-    <Box sx={{ minWidth: 275 }}>
-      <MyCard
-        variant="outlined"
-        sx={{
-          minHeight: "24rem",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        {card}
-      </MyCard>
+    <Box
+      component={"div"}
+      className="card"
+      variant="outlined"
+      bgcolor={"transparent"}
+      data-aos="flip-right"
+      data-aos-duration="500"
+      data-aos-delay="50"
+      data-aos-easing="ease-in-out"
+    >
+      <Box className="card-side card-side-front">{card}</Box>
+      <Box className="card-side card-side-back">Back side</Box>
     </Box>
   );
 }
