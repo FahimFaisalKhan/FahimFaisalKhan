@@ -4,6 +4,7 @@ import { router } from "./Routes/routes";
 
 import { Box, createTheme, CssBaseline } from "@mui/material";
 import darkScrollbar from "@mui/material/darkScrollbar";
+import LoaderContext from "./contexts/LoaderContext";
 
 function App() {
   // const styles = (theme) => ({
@@ -47,7 +48,10 @@ function App() {
   return (
     <Box bgcolor={"#00072d"}>
       <ThemeProvider theme={theme}>
-        <RouterProvider router={router} />
+        <LoaderContext>
+          <RouterProvider router={router} />
+        </LoaderContext>
+
         <CssBaseline />
       </ThemeProvider>
     </Box>

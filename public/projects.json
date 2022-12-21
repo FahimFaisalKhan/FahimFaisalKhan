@@ -1,0 +1,194 @@
+[
+  {
+    "id": 0,
+    "name": "Fahim's Capture",
+    "image": "https://i.ibb.co/yNDsbkt/fahimscapture.png",
+    "imageHeader": "https://i.ibb.co/BByNMLc/fahimscapture-H.png",
+    "description": "A photographer's personal website where he offers various photography services to his clients",
+    "technologies": [
+      "MongoDB",
+      "React.js",
+      "Express.js",
+      "Node.js",
+      "Firebase",
+      "Fire-store",
+      "Tailwind CSS",
+      "JWT"
+    ],
+    "liveSite": "https://review-site-auth.web.app/",
+    "clientCode": "https://github.com/FahimFaisalKhan/Photographer_Site_MERN",
+    "serverCode": "https://github.com/FahimFaisalKhan/Photographer_Site_MERN-_server",
+    "features": [
+      {
+        "name": "Catchy Layout",
+        "caption": "Lay out that instantly creates a good impression.",
+        "images": [
+          "https://i.ibb.co/4FYBFdk/catchy.png",
+          "https://i.ibb.co/R6MyxfB/catchy2.png"
+        ],
+        "featureDes": "An attractive layout is the most important aspect of a website.To create this layout I have used Tailwind CSS utility classes , CSS flex box and CSS grid. This layout is fully responsive. Feel free to check it out on my live website, you can find the link below.",
+        "featureTechs": ["TailWind CSS", "Daisy-UI", "CSS grid"]
+      },
+      {
+        "name": "Quick Search",
+        "images": ["https://i.ibb.co/PT9nQXJ/search.png"],
+        "caption": "User dont have to scroll though all services to find a certain service.",
+        "featureDes": "To value user's precious time is one of the main charecteristics of a good website. With the search functionality I have made user's navigation easy and time saving. To implement this functionality I have used fetch API which sends a request to my server with query parameter containing what user is trying to find and then in the server I have used mongoDb find operation with aggregated Regexp. Regexp is fast and returns users desired response in no time.",
+        "featureTechs": [
+          "MongoDB find operation",
+          "MongoDb aggregation",
+          "Express.js",
+          "fetch API"
+        ]
+      },
+      {
+        "name": "Add Reviews",
+        "images": ["https://i.ibb.co/7rgY9KY/reviews.png"],
+        "caption": "User interactions bring life to the website",
+        "featureDes": "By allowing the users to interract with the site and save their opinion in a formatted way so that other people can see, makes the website more alive. Here user reviews are saved in the database with an unsert operation , users can delete or update their review later on. The latest reviews are shown at the top.",
+        "featureTechs": [
+          "React hooks",
+          "MongoDB insert operation",
+          "Express.js",
+          "fetch API"
+        ]
+      },
+      {
+        "name": "Pagination",
+        "images": ["https://i.ibb.co/rMVF4qD/pagination.png"],
+        "caption": "Distributing data in multiple pages makes the website faster and convenient.",
+        "featureDes": "For a website that deals with huge amount of data or Big data, loading all data in same page or loading all data at once will not be a very good algorithm for a website in order to maintain speed and better UX. To solve that I have implemented pagination. In this website, when a page loads only limited amount of data shown in one page and thet limited amount of data is sent by the server. To accomplish this task I have used mongoDB limit and skip method which tells the server how much data to load and which data not to load respectively.",
+        "featureTechs": [
+          "MongoDB find operation",
+          "MongoDb limit method",
+          "MongoDb skip method",
+          "Express.js",
+          "fetch API"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "name": "Binary Base",
+    "image": "https://i.ibb.co/y4PTDVx/binarybase.png",
+    "imageHeader": "https://i.ibb.co/Xykpgxb/binarybase-H.png",
+    "description": "This is an online learning platform where people can see an overview of the courseand buy them.",
+    "technologies": [
+      "MongoDB",
+      "React.js",
+      "Express.js",
+      "Node.js",
+      "Tailwind CSS",
+      "Firebase",
+      "Daisy UI"
+    ],
+    "liveSite": "https://learning-platform-auth.web.app/",
+    "clientCode": "https://github.com/FahimFaisalKhan/Online-Learning-Platform-MERN",
+    "serverCode": "https://github.com/FahimFaisalKhan/Online-Learning-Platform-Server",
+    "features": [
+      {
+        "name": "Dark Mode",
+        "caption": "Dark mode helps user to stay longer on the website",
+        "images": [
+          "https://i.ibb.co/NYvQCyy/lightmode.png",
+          "https://i.ibb.co/5Yj2rv7/darkmode.png"
+        ],
+        "featureDes": "All modern websites have got option of changing mode. User can  switch to light and darkmode based on his/her preference. Giving the user his desired look of the website is very important for any web base application. To implement the dark mode functionality I hanva used React useState hook and theme of dausy-Ui.",
+        "featureTechs": ["Daisy-UI", "React hooks", "React Context API"]
+      },
+      {
+        "name": "Custom Carousel",
+        "images": ["https://i.ibb.co/ygWZ213/customcar.png"],
+        "caption": "Carousel gives a website elegant look.",
+        "featureDes": "With the custom carousel added in the website, the main attactions of the website are shown in a short space with a little animation. To implement this I have userd fetch API to load the data shown in carousel, JS asynchronuscall(setTimeOut) to apply animation delay and some custom css to add some more styling.",
+        "featureTechs": ["fetch API", "CSS", "JS asynchronus call", "Daisy-UI"]
+      },
+      {
+        "name": "Social Signup",
+        "images": ["https://i.ibb.co/Vx7CMtF/sociallogin.png"],
+        "caption": "Social signup saves user the trouble of going throught the lenthy process of registering.",
+        "featureDes": "With social signup system like Google, Facebook or Github users can easily login to a website without going through the manual Sign up process. I have implemented Google and Github signup system in this website. To implement those system I have used firebase, with the help of react-context-api I have made the current user information available on every page of the website.",
+        "featureTechs": ["React context API", "Firebase", "fetch API"]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Becha-Kena",
+    "image": "https://i.ibb.co/NsbZhpC/bechakena.png",
+    "imageHeader": "https://i.ibb.co/MZQvbwx/bechakena-H.png",
+    "description": "This is a multi-vendor website of second-hand musical instruments with an integrated admin panel. Here users can sell their products and buy them as well.",
+    "technologies": [
+      "MongoDB",
+      "React.js",
+      "Express.js",
+      "Node.js",
+      "Stripe Payment",
+      "Tanstack Query",
+      "React Dropzone",
+      "Firebase admin SDK",
+      "Tailwind CSS",
+      "Firebase"
+    ],
+    "liveSite": "https://bechakena-auth.web.app/",
+    "clientCode": "https://github.com/FahimFaisalKhan/Second-hand-product-MERN-Stripe",
+    "serverCode": "https://github.com/FahimFaisalKhan/Second-hand-product-MERN-Strip-server",
+    "features": [
+      {
+        "name": "Dediacated Admin Panel",
+        "images": ["https://i.ibb.co/5hjskXh/adminpanel.png"],
+        "caption": "Admin panel allows the owner to control the website without the help of any developer.",
+        "featureDes": "With integrated admin panel the owner/owners of the website can control the content and activity of the website. Here in this site an admin will see all sellers and buyers in the dashboard and will be able to delete any buyer or seller as he sees fit. Seller and buyer will see different options on there dashboard e.g: My Products, My Orders. To give different authorization privileges to different user I have used server side jwt validation along with client side role validation. When an user is deleted, he is also delete from firebase users with the help of integrated firebase-admin-SDK in the server side",
+        "featureTechs": [
+          "React custom hooks",
+          "JWT validation",
+          "MongoDB find operation",
+          "fetch API",
+          "react-hot-toast",
+          "firebase-admin-SDK"
+        ]
+      },
+      {
+        "name": "Card Payment",
+        "images": ["https://i.ibb.co/MVtKQjx/cardpayment.png"],
+        "caption": "Payment with card is the most standard way of payment processing.",
+        "featureDes": "I have implemented card payment system in this website. Users will be able to put their card information in order to purchase an item. Payment processing is done by stripe. and user will recieve a transaction id on successfull payment",
+        "featureTechs": [
+          "Stripe",
+          "Js asynchronus call",
+          "MongoDB insert operation",
+          "Tanstack Query",
+          "react-hot-toast"
+        ]
+      },
+      {
+        "name": "Add Products",
+        "images": ["https://i.ibb.co/HPY0Bmr/addproduct.png"],
+        "caption": "Only sellers are allowed to add products",
+        "featureDes": "If an user logs in as an seller he is able to add an product under specific categories. To implement this functionality I have used react-hook-form to get data from the form and form validation, Tanstack-Query to perform post request to the server, imageBB to host the product images uploaded by the seller and finally mongoDB insert operation to add the product to the database.",
+        "featureTechs": [
+          "React-hook-form",
+          "Tanstack Query",
+          "React Drop-Zone",
+          "ImageBB",
+          "MongoDB insert operation"
+        ]
+      },
+      {
+        "name": "Signup With email and Photo",
+        "images": ["https://i.ibb.co/GF7r2hF/register.png"],
+        "caption": "Signing up with email is a vital part of any multivendor website.",
+        "featureDes": "I have used firebase to implement imail signup functionality. user name email and all other information is saved in firebase as well as the database.I have used react-drop-zone to implement the drag and drop functionality and host images on imageBB.",
+        "featureTechs": [
+          "Firebae",
+          "React-hook-form",
+          "Tanstack Query",
+          "React Drop-Zone",
+          "ImageBB",
+          "MongoDB insert operation"
+        ]
+      }
+    ]
+  }
+]

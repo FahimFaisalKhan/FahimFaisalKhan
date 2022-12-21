@@ -13,13 +13,13 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import { keyframes } from "@mui/material";
+import { keyframes, styled } from "@mui/material";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { Height } from "@mui/icons-material";
 
 const drawerWidth = 240;
-const navItems = ["Home", "About", "Contact"];
+const navItems = ["Home", "About", "Contact", "Blogs"];
 
 function Navigation(props) {
   const { window, children } = props;
@@ -43,30 +43,6 @@ function Navigation(props) {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-
-  const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Divider />
-      <List>
-        {navItems.map((item) => (
-          <Link
-            to={`/${item.toLowerCase()}`}
-            style={{ textDecoration: "none" }}
-          >
-            <ListItem key={item} disablePadding>
-              <ListItemButton sx={{ textAlign: "center" }}>
-                <ListItemText primary={item} sx={{ color: "primary.main" }} />
-              </ListItemButton>
-            </ListItem>
-          </Link>
-        ))}
-      </List>
-    </Box>
-  );
-
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
-
   const shadowAn = keyframes`
   0%{
     opacity: 0;
@@ -81,6 +57,71 @@ function Navigation(props) {
    
   }
   `;
+
+  const Btn = styled(Button)(({ theme }) => ({
+    position: "fixed",
+    zIndex: 20,
+    right: 50,
+    borderRadius: "8px",
+    // animation: `${shadowAnm} 3s ease-in-out infinite`,
+    "&::after": {
+      content: "''",
+      position: "absolute",
+      width: "100%",
+      height: "100%",
+      borderRadius: "8px",
+      boxShadow:
+        "rgb(47, 249, 197,0.4) 0 0 0 5px, rgb(121, 251, 218 ,0.3) 0 0 0 12px , rgb(195, 253, 239,0.2) 0 0 0 17px , rgb(244, 255, 252,0.1) 0 0 0 22px",
+      opacity: 0,
+
+      animation: `${shadowAn}  4s ease-in-out 0.5s infinite backwards`,
+    },
+  }));
+  const MyBox = styled(Box)(({ theme }) => ({
+    bgcolor: (theme) => `${theme.palette.primary.main}`,
+  }));
+
+  const drawer = (
+    <MyBox
+      onClick={handleDrawerToggle}
+      sx={{
+        textAlign: "center",
+        bgcolor: (theme) => `${theme.palette.primary.main}`,
+        flexGrow: 1,
+      }}
+    >
+      <Divider />
+      <List>
+        {navItems.map((item) => (
+          <Link
+            to={`/${item.toLowerCase()}`}
+            style={{ textDecoration: "none" }}
+          >
+            <ListItem key={item} disablePadding>
+              <ListItemButton sx={{ textAlign: "center" }}>
+                <ListItemText primary={item} sx={{ color: "info.light" }} />
+              </ListItemButton>
+            </ListItem>
+          </Link>
+        ))}
+        <ListItem disablePadding>
+          <ListItemButton sx={{ textAlign: "center" }}>
+            <Btn
+              onClick={handleDownload}
+              variant="outlined"
+              color="secondary"
+              sx={{ position: "relative", right: 0, left: 10, mt: 2 }}
+            >
+              Download Resume
+            </Btn>
+          </ListItemButton>
+        </ListItem>
+      </List>
+    </MyBox>
+  );
+
+  const container =
+    window !== undefined ? () => window().document.body : undefined;
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -99,7 +140,7 @@ function Navigation(props) {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
+            sx={{ mr: 2, display: { md: "none" } }}
           >
             <MenuIcon />
           </IconButton>
@@ -115,7 +156,7 @@ function Navigation(props) {
                     key={item}
                     sx={{
                       color: "grey.400",
-                      mr: i !== 2 && 5,
+                      mr: 5,
                       "&:focus": {
                         color: "secondary.main",
                       },
@@ -128,35 +169,20 @@ function Navigation(props) {
             })}
           </Box>
 
-          <Button
+          <Btn
             onClick={handleDownload}
             variant="outlined"
             color="secondary"
             sx={{
-              position: "fixed",
-              zIndex: 20,
-              right: 50,
-              borderRadius: "8px",
-              // animation: `${shadowAnm} 3s ease-in-out infinite`,
-              "&::after": {
-                content: "''",
-                position: "absolute",
-                width: "100%",
-                height: "100%",
-                borderRadius: "8px",
-                boxShadow:
-                  "rgb(47, 249, 197,0.4) 0 0 0 5px, rgb(121, 251, 218 ,0.3) 0 0 0 12px , rgb(195, 253, 239,0.2) 0 0 0 17px , rgb(244, 255, 252,0.1) 0 0 0 22px",
-                opacity: 0,
-
-                animation: `${shadowAn}  4s ease-in-out 0.5s infinite backwards`,
-              },
+              right: { xs: 10, sm: 0, md: 50 },
+              display: { xs: "none", md: "inline-flex" },
             }}
           >
             Download Resume
-          </Button>
+          </Btn>
         </Toolbar>
       </AppBar>
-      <Box component="nav">
+      <Box component="nav" sx={{}}>
         <Drawer
           container={container}
           variant="temporary"
@@ -166,7 +192,7 @@ function Navigation(props) {
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
-            display: { xs: "block", sm: "none" },
+            display: { xs: "block", md: "none" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,

@@ -1,15 +1,47 @@
-import React from "react";
-import { Box, Button } from "@mui/material";
+import React, { useContext, useEffect } from "react";
+import { Box, Button, Typography } from "@mui/material";
 import Banner from "./Banner/Banner";
 
 import Languages from "./Languages/Languages";
 import FrameWork from "./FrameWorks/FrameWork";
 import Technologies from "./Technologies/Technologies";
 import Projects from "./Projects/Projects";
+import IconLoader from "../../SharedComps/Loader/IconLoader";
+import { MyLoader } from "../../contexts/LoaderContext";
 
 const Home = () => {
+  const { loading } = useContext(MyLoader);
+  useEffect(() => {
+    const unsubscribe = () => {
+      if (loading) {
+        return (
+          <Box
+            sx={{
+              minHeight: "100vh",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Typography
+              component={"div"}
+              variant="h2"
+              fontSize={"2rem"}
+              width="10rem"
+            >
+              <IconLoader />
+            </Typography>
+          </Box>
+        );
+      }
+    };
+    return () => {
+      unsubscribe();
+    };
+  }, [loading]);
+
   return (
-    <section>
+    <Box>
       <Box
         minHeight={"100vh"}
         sx={{
@@ -66,7 +98,7 @@ const Home = () => {
       >
         <Technologies />
       </Box>
-    </section>
+    </Box>
   );
 };
 

@@ -5,8 +5,10 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import { Box } from "@mui/material";
+import { Link } from "react-router-dom";
 
-export default function ProjectCard({ projectData }) {
+export default function ProjectCard({ projectData, id }) {
   const {
     name,
     description,
@@ -56,43 +58,66 @@ export default function ProjectCard({ projectData }) {
           {description}
         </Typography>
       </CardContent>
-      <CardActions sx={{ pl: 0 }}>
-        <Button
-          onClick={(e) => {
-            e.preventDefault();
-            window.open(liveSite, "_blank");
+      <CardActions sx={{ pl: 0, justifyContent: "space-between" }}>
+        <Box
+          sx={{
+            display: "flex",
+            gap: ".6rem",
+            flexDirection: { xs: "column", sm: "row" },
           }}
-          color="info"
-          variant="contained"
-          size="small"
-          sx={{ justifyContent: "start", textTransform: "capitalize" }}
         >
-          Live Website
-        </Button>
-        <Button
-          onClick={(e) => {
-            e.preventDefault();
-            window.open(clientCode, "_blank");
-          }}
-          color="info"
-          variant="contained"
-          size="small"
-          sx={{ justifyContent: "start", textTransform: "capitalize" }}
-        >
-          Client Side Code
-        </Button>
-        <Button
-          onClick={(e) => {
-            e.preventDefault();
-            window.open(serverCode, "_blank");
-          }}
-          color="info"
-          variant="contained"
-          size="small"
-          sx={{ justifyContent: "start", textTransform: "capitalize" }}
-        >
-          Server Side Code
-        </Button>
+          <Button
+            onClick={(e) => {
+              e.preventDefault();
+              window.open(liveSite, "_blank");
+            }}
+            color="info"
+            variant="contained"
+            size="small"
+            sx={{ justifyContent: "start", textTransform: "capitalize" }}
+          >
+            Live Website
+          </Button>
+          <Button
+            onClick={(e) => {
+              e.preventDefault();
+              window.open(clientCode, "_blank");
+            }}
+            color="info"
+            variant="contained"
+            size="small"
+            sx={{ justifyContent: "start", textTransform: "capitalize" }}
+          >
+            Client Side Code
+          </Button>
+          <Button
+            onClick={(e) => {
+              e.preventDefault();
+              window.open(serverCode, "_blank");
+            }}
+            color="info"
+            variant="contained"
+            size="small"
+            sx={{ justifyContent: "start", textTransform: "capitalize" }}
+          >
+            Server Side Code
+          </Button>
+        </Box>
+
+        <Link to={`/project/${id}`} style={{ textDecoration: "none" }}>
+          <Button
+            color="secondary"
+            variant="contained"
+            size="small"
+            sx={{
+              justifyContent: "start",
+              textTransform: "capitalize",
+              fontWeight: "bold",
+            }}
+          >
+            View Detail
+          </Button>
+        </Link>
       </CardActions>
     </Card>
   );
