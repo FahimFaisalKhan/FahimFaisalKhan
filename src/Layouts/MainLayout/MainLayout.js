@@ -6,15 +6,17 @@ import Footer from "../../SharedComps/Footer/Footer";
 import IconLoader from "../../SharedComps/Loader/IconLoader";
 import Navigation from "../../SharedComps/Navigation/Navigation";
 import { ScrollRestoration } from "react-router-dom";
+import { ScrollTop } from "../../hooks/useScroll";
 
 const MainLayout = () => {
   return (
     <Box sx={{ maxWidth: "100vw" }}>
+      <ScrollTop />
       <Navigation>
         <Outlet />
       </Navigation>
       <Footer />
-      <ScrollRestoration />
+      {/* <ScrollRestoration /> */}
     </Box>
   );
 };

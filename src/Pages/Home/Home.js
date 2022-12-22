@@ -23,11 +23,6 @@ const Home = () => {
   );
   const { data: projects } = useFetch("projects.json", setProjectsLoading);
   console.log(!languagesLoading && !frameworksLoading && !projectLoading);
-  // useEffect(() => {
-  //   // 👇️ scroll to top on page load
-
-  //   window.scrollTo({ top: 0, behavior: "smooth" });
-  // }, [window.scrollY]);
 
   if (languagesLoading || frameworksLoading || projectLoading) {
     return (
