@@ -15,7 +15,7 @@ import {
 } from "@mui/material";
 
 import React, { useContext, useEffect, useState } from "react";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useLocation, useParams } from "react-router-dom";
 
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import { useFetch } from "../../hooks/useFetch";
@@ -27,10 +27,14 @@ const ProjectDetail = () => {
   const [projectsLoading, setProjectsLoading] = useState(true);
   const { data } = useFetch("projects.json", setProjectsLoading);
   const { loading } = useContext(MyLoader);
-
+  const location = useLocation();
+  console.log(location?.state);
   const project = data[+id];
   console.log(project, loading);
-
+  // useEffect(() => {
+  //   // 👇️ scroll to top on page load
+  //   window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  // }, []);
   if (projectsLoading || !project) {
     return (
       <Box

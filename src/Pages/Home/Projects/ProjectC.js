@@ -37,7 +37,11 @@ export default function ProjectC({ project, id }) {
   `;
 
   return (
-    <Link to={`/${id}`} style={{ textDecoration: "none" }}>
+    <Link
+      to={`/${id}`}
+      state={{ scH: window.scrollY }}
+      style={{ textDecoration: "none" }}
+    >
       <Card
         sx={{
           position: "relative",

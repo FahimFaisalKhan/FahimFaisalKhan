@@ -5,6 +5,7 @@ import { MyLoader } from "../../contexts/LoaderContext";
 import Footer from "../../SharedComps/Footer/Footer";
 import IconLoader from "../../SharedComps/Loader/IconLoader";
 import Navigation from "../../SharedComps/Navigation/Navigation";
+import { ScrollRestoration } from "react-router-dom";
 
 const MainLayout = () => {
   return (
@@ -13,6 +14,7 @@ const MainLayout = () => {
         <Outlet />
       </Navigation>
       <Footer />
+      <ScrollRestoration />
     </Box>
   );
 };

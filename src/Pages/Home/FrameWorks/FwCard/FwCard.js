@@ -7,15 +7,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import styled from "@emotion/styled";
 import "./FwCard.css";
-
-const bull = (
-  <Box
-    component="span"
-    sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
-  >
-    •
-  </Box>
-);
+import { height } from "@mui/system";
 
 export default function FwCard({ fw }) {
   const { framework, description } = fw;
@@ -40,7 +32,24 @@ export default function FwCard({ fw }) {
       data-aos-easing="ease-in-out"
     >
       <Box className="card-side card-side-front">{card}</Box>
-      <Box className="card-side card-side-back">Back side</Box>
+      <Box className="card-side card-side-back">
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "start",
+            width: "100%",
+            height: "100%",
+            mt: 5,
+            px: 3,
+            fontSize: "1.2rem",
+          }}
+        >
+          <Typography variant="p" component={"p"} color="primary">
+            {description}
+          </Typography>
+        </Box>
+      </Box>
     </Box>
   );
 }

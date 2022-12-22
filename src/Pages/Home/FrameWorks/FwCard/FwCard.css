@@ -3,6 +3,7 @@
   -moz-perspective: 150rem;
   position: relative;
   height: 24rem;
+  border-radius: 8px;
 }
 .card-side {
   height: 24rem;
@@ -15,6 +16,7 @@
   overflow: hidden;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
   border: 2px solid #00a6fb;
+  border-radius: 8px;
 }
 .card-side-front {
   background: radial-gradient(
@@ -27,11 +29,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 8px;
 }
 .card-side-back {
   background: linear-gradient(120deg, #0a2472, #a6e1fa, #0a2472);
   transform: rotateY(180deg);
-  border-radius: 3px;
+  border-radius: 8px;
 }
 .card:hover .card-side-front {
   transform: rotateY(-180deg);
