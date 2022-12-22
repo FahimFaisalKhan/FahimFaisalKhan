@@ -3,9 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useFetch } from "../../../hooks/useFetch";
 import ExCard from "./ExCard/ExCard";
 
-const Languages = () => {
-  const { data: arr } = useFetch("languages.json");
-
+const Languages = ({ arr }) => {
   return (
     <div>
       <Typography

@@ -2,10 +2,8 @@ import { Grid, Typography } from "@mui/material";
 import React from "react";
 
 import ProjectC from "./ProjectC";
-import { useFetch } from "../../../hooks/useFetch";
 
-const Projects = () => {
-  const { data: projects } = useFetch("projects.json");
+const Projects = ({ projects }) => {
   return (
     <div>
       <Typography

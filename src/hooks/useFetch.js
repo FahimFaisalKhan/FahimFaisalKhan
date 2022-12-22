@@ -1,16 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import { MyLoader } from "../contexts/LoaderContext";
 
-export const useFetch = (url) => {
-  const { setLoading, loading } = useContext(MyLoader);
+export const useFetch = (url, setLoading) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    console.log(loading);
     const controler = new AbortController();
 
     if (url) {
-      console.log(url);
       fetch(url, { signal: controler.signal })
         .then((res) => res.json())
         .then((data) => {
@@ -23,10 +20,11 @@ export const useFetch = (url) => {
           setLoading(false);
         });
     }
+
     return () => {
       controler.abort();
     };
-  }, [url, setLoading, loading]);
+  }, [url, setLoading]);
 
   return { data };
 };

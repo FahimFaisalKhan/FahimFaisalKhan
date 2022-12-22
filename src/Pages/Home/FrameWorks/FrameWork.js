@@ -4,8 +4,7 @@ import FwCard from "./FwCard/FwCard";
 import { Margin } from "@mui/icons-material";
 import { useFetch } from "../../../hooks/useFetch";
 
-const FrameWork = () => {
-  const { data: frameworks } = useFetch("frameworks.json");
+const FrameWork = ({ frameworks }) => {
   return (
     <div>
       <Typography
