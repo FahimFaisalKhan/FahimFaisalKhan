@@ -38,7 +38,7 @@ const Map = () => {
               height: "100%",
               width: "100%",
             }}
-            src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=Meradia, Dhaka, Bangladesh&amp;t=p&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+            src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=Taspia Bankers Tower,Dhaka,Bangladesh&amp;t=p&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
           ></Box>
         </Box>
       </Box>
