@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
-import React, { useContext } from "react";
-import { Outlet } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { Outlet, useLocation } from "react-router-dom";
 import { MyLoader } from "../../contexts/LoaderContext";
 import Footer from "../../SharedComps/Footer/Footer";
 import IconLoader from "../../SharedComps/Loader/IconLoader";

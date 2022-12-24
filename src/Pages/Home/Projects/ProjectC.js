@@ -9,7 +9,7 @@ import { motion, useMotionValue, useTransform } from "framer-motion";
 import { Paper } from "@mui/material";
 import { keyframes } from "@emotion/react";
 import { Stack } from "@mui/system";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const bull = (
   <Box
@@ -35,11 +35,14 @@ export default function ProjectC({ project, id }) {
     background-position:top;
   }
   `;
+  const { pathname } = useLocation();
 
   return (
     <Link
       to={`/${id}`}
-      state={{ scH: window.scrollY }}
+      onClick={() => {
+        sessionStorage.setItem(pathname, window.scrollY);
+      }}
       style={{ textDecoration: "none" }}
     >
       <Card

@@ -6,7 +6,7 @@ import {
   Paper,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import SchoolIcon from "@mui/icons-material/School";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
 
@@ -22,16 +22,24 @@ import SendIcon from "@mui/icons-material/Send";
 import { BsMessenger } from "react-icons/bs";
 // import { BsWhatsapp } from "react-icons/bs";
 import { WhatsApp } from "@mui/icons-material";
+import { MyLoader } from "../../contexts/LoaderContext";
+import Map from "./Map/Map";
+import me from "../../Static/Images/me2.png";
 const About = () => {
-  const card = (
-    <React.Fragment>
-      <CardContent>
-        <Typography variant="h5" component="div" sx={{ color: "info.light" }}>
-          Contact
-        </Typography>
-      </CardContent>
-    </React.Fragment>
-  );
+  const { setLoading, loading } = useContext(MyLoader);
+
+  useEffect(() => {
+    setLoading(false);
+
+    return () => {
+      setLoading(true);
+      console.log("should be true");
+    };
+  }, [setLoading]);
+  if (loading) {
+    return <div>loading...</div>;
+  }
+
   return (
     <Box sx={{ maxWidth: "1550px", margin: "5rem auto" }}>
       <Typography
@@ -59,28 +67,45 @@ const About = () => {
         </Paper>
       </Typography>
       <Paper
-        component={"p"}
         sx={{
+          display: "flex",
           background: (theme) =>
             `linear-gradient(to right, ${theme.palette.primary.main}, ${theme.palette.primary.light},${theme.palette.primary.main})`,
           borderRight: (theme) => `4px solid ${theme.palette.secondary.main}`,
           borderLeft: (theme) => `4px solid ${theme.palette.secondary.main}`,
-          borderRadius: 0,
-          color: "grey.400",
-          px: 5,
-          py: 3,
-          mt: 4,
-          fontSize: "1.2rem",
         }}
       >
-        Hi, I am Fahim Faisal Khan. I am a <b>Full-Stack Web-Developer</b> from
-        Bangladesh. I am self-motivated and highly dedicated in whatever I do.
-        Developing web is not only my profession, it is my passion as well.
-        Internet has brought the whole world together. I belive, to buld a
-        website with good UX is to make another people's life easier. With this
-        vision and to make web a better place I continue my journy as a
-        web-developer.
+        <Paper
+          component={"p"}
+          sx={{
+            bgcolor: "transparent",
+            borderRadius: 0,
+            color: "grey.400",
+            px: 5,
+            display: "flex",
+            alignItems: "center",
+            mt: 4,
+            fontSize: "1.2rem",
+            width: "50%",
+            boxShadow: "none",
+          }}
+        >
+          Hi, I am Fahim Faisal Khan. I am a Full-Stack Web-Developer from
+          Bangladesh. I am self-motivated and highly dedicated in whatever I do.
+          Developing web is not only my profession, it is my passion as well.
+          Internet has brought the whole world together. I belive, to buld a
+          website with good UX is to make another people's life easier. With
+          this vision and to make web a better place I continue my journy as a
+          web-developer.
+        </Paper>
+        <Box
+          component={"img"}
+          src={me}
+          width="30%"
+          sx={{ borderLeft: "1px solid white" }}
+        />
       </Paper>
+
       <Typography
         sx={{
           mt: 15,
@@ -235,39 +260,73 @@ const About = () => {
         </Paper>
       </Typography>
       <Paper
-        component={"p"}
         sx={{
+          display: "flex",
+          flexDirection: { xs: "column", md: "row" },
+          minHeight: "20rem",
           background: (theme) =>
             `linear-gradient(to right, ${theme.palette.primary.main}, ${theme.palette.primary.light},${theme.palette.primary.main})`,
           borderRight: (theme) => `4px solid ${theme.palette.secondary.main}`,
           borderLeft: (theme) => `4px solid ${theme.palette.secondary.main}`,
-          borderRadius: 0,
-          color: "grey.400",
-          px: 5,
-          py: 3,
-          mt: 4,
-          fontSize: "1.2rem",
         }}
       >
-        <List sx={{ width: "100%" }}>
-          <ListItem>
-            <ListItemAvatar>
-              <CottageIcon sx={{ color: "grey.100" }} />
-            </ListItemAvatar>
-            <ListItemText
-              primary="Home"
-              primaryTypographyProps={{
-                sx: { color: "grey.100", fontSize: "1.2rem" },
+        <Paper
+          component={"p"}
+          sx={{
+            background: "transparent",
+            boxShadow: "none",
+            borderRadius: 0,
+            color: "grey.400",
+            px: 5,
+            py: 3,
+            mt: 4,
+            fontSize: "1.2rem",
+            width: { xs: "100%", md: "50%" },
+          }}
+        >
+          <Box>
+            <Typography
+              component={"p"}
+              variant="p"
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                columnGap: "1rem",
               }}
-              secondary="58/C Meradia, Khilgaon, Dhaka-1219, Bangladesh."
-              secondaryTypographyProps={{
-                sx: { color: "grey.400", fontSize: "1rem" },
+            >
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  columnGap: 2,
+                  height: "2rem",
+                }}
+              >
+                <CottageIcon sx={{ color: "grey.100", mt: -1 }} /> <p>Home</p>
+              </Box>
+            </Typography>
+            <Typography
+              component={"p"}
+              variant="p"
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                columnGap: "1rem",
               }}
-              sx={{ color: "grey.100" }}
-            />
-          </ListItem>
-        </List>
+            >
+              <Typography
+                component="p"
+                variant="p"
+                sx={{ color: "grey.400", fontSize: "1rem" }}
+              >
+                58/C Meradia, Khilgaon, Dhaka-1219, Bangladesh.
+              </Typography>
+            </Typography>
+          </Box>
+        </Paper>
+        <Map />
       </Paper>
+
       <Typography
         sx={{
           mt: 15,
@@ -341,10 +400,8 @@ const About = () => {
               </Typography>
               <div>
                 <Button
-                  onClick={(event) => {
-                    event.preventDefault();
-                    window.open("https://mail.google.com/", "_blank");
-                  }}
+                  href="mailto:khanfahimfaisal@gmail.com"
+                  target={"_blank"}
                   variant="contained"
                   color="info"
                   endIcon={<SendIcon />}

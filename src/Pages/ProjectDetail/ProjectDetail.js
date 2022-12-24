@@ -26,15 +26,25 @@ const ProjectDetail = () => {
   const { id } = useParams();
   const [projectsLoading, setProjectsLoading] = useState(true);
   const { data } = useFetch("projects.json", setProjectsLoading);
-  const { loading } = useContext(MyLoader);
+  const { setLoading } = useContext(MyLoader);
   const location = useLocation();
-  console.log(location?.state);
+
   const project = data[+id];
-  console.log(project, loading);
+
   // useEffect(() => {
   //   // 👇️ scroll to top on page load
   //   window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   // }, []);
+
+  useEffect(() => {
+    if (projectsLoading || !project) {
+      setLoading(true);
+    } else {
+      setLoading(false);
+    }
+
+    return () => setLoading(true);
+  }, [setLoading]);
   if (projectsLoading || !project) {
     return (
       <Box

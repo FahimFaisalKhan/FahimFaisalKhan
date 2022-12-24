@@ -1,10 +1,11 @@
 import { ThemeProvider } from "@emotion/react";
-import { RouterProvider } from "react-router-dom";
+import { RouterProvider, useLocation } from "react-router-dom";
 import { router } from "./Routes/routes";
 
 import { Box, createTheme, CssBaseline } from "@mui/material";
 import darkScrollbar from "@mui/material/darkScrollbar";
 import LoaderContext from "./contexts/LoaderContext";
+import { useEffect } from "react";
 
 function App() {
   // const styles = (theme) => ({
@@ -21,6 +22,7 @@ function App() {
   //     },
   //   },
   // });
+
   const theme = createTheme({
     palette: {
       primary: {
@@ -44,6 +46,9 @@ function App() {
       },
     },
   });
+  useEffect(() => {
+    sessionStorage.clear();
+  }, []);
 
   return (
     <Box bgcolor={"#00072d"}>

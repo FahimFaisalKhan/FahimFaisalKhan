@@ -12,10 +12,16 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import emailjs from "@emailjs/browser";
+import { MyLoader } from "../../contexts/LoaderContext";
 
 const Contact = () => {
+  const { setLoading } = useContext(MyLoader);
+  useEffect(() => {
+    setLoading(false);
+    return () => setLoading(true);
+  }, [setLoading]);
   const form = useRef();
   const handleSubmit = (e) => {
     e.preventDefault();

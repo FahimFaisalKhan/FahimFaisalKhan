@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -14,7 +14,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { keyframes, styled } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 import { Height } from "@mui/icons-material";
 
@@ -123,6 +123,19 @@ function Navigation(props) {
   const container =
     window !== undefined ? () => window().document.body : undefined;
 
+  const { pathname } = useLocation();
+  const handleNavigate = (goingFrom, goingTo) => {
+    console.log("handling:", goingFrom, goingTo);
+
+    sessionStorage.setItem(goingFrom, global.window.scrollY);
+    if (goingFrom === goingTo) {
+      console.log("same");
+      sessionStorage.clear();
+      global.window.scroll(0, 0);
+    }
+    sessionStorage.removeItem(goingTo);
+  };
+
   return (
     <Box sx={{ display: "flex" }}>
       <AppBar
@@ -149,10 +162,24 @@ function Navigation(props) {
             {navItems.map((item, i) => {
               return (
                 <Link
-                  to={`/${item.toLowerCase()}`}
+                  to={`/${item !== "Home" ? item.toLowerCase() : ""}`}
                   style={{ textDecoration: "none" }}
                 >
                   <Button
+                    onClick={() => {
+                      console.log("clicked");
+                      handleNavigate(
+                        pathname,
+                        `/${item !== "Home" ? item.toLowerCase() : ""}`
+                      );
+                      // setNavigating({
+                      //   state: true,
+                      //   goingFrom: pathname,
+                      //   goingTo: `/${
+                      //     item !== "Home" ? item.toLowerCase() : ""
+                      //   }`,
+                      // });
+                    }}
                     key={item}
                     sx={{
                       color: "grey.400",

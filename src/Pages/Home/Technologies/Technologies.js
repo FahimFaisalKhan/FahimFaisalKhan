@@ -88,7 +88,7 @@ const Technologies = () => {
         }}
       >
         <Box component={"p"} sx={{ ml: 3.5 }}>
-          Technologies I feel comfortable to work with
+          Technologies I feel comfortable to work with.
         </Box>
       </Typography>
       <TechContainer>

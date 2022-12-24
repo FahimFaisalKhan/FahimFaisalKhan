@@ -10,6 +10,7 @@ import IconLoader from "../../SharedComps/Loader/IconLoader";
 import { MyLoader } from "../../contexts/LoaderContext";
 import { useFetcher } from "react-router-dom";
 import { useFetch } from "../../hooks/useFetch";
+import { ScrollTop } from "../../hooks/useScroll";
 
 const Home = () => {
   const [languagesLoading, setLanguagesLoading] = useState(true);
@@ -22,9 +23,18 @@ const Home = () => {
     setFrameworksLoading
   );
   const { data: projects } = useFetch("projects.json", setProjectsLoading);
-  console.log(!languagesLoading && !frameworksLoading && !projectLoading);
+  const { setLoading } = useContext(MyLoader);
+  useEffect(() => {
+    setLoading(true);
+    if (!languagesLoading && !frameworksLoading && !projectLoading) {
+      setLoading(false);
+    }
 
+    return () => setLoading(false);
+  }, [setLoading]);
   if (languagesLoading || frameworksLoading || projectLoading) {
+    console.log("loading");
+
     return (
       <Box
         sx={{
@@ -45,6 +55,8 @@ const Home = () => {
       </Box>
     );
   } else {
+    console.log("load finished");
+    setLoading(false);
     return (
       <Box>
         <Box
