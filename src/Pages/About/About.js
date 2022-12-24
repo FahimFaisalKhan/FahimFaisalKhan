@@ -69,6 +69,7 @@ const About = () => {
       <Paper
         sx={{
           display: "flex",
+          flexDirection: { xs: "column-reverse", md: "row" },
           background: (theme) =>
             `linear-gradient(to right, ${theme.palette.primary.main}, ${theme.palette.primary.light},${theme.palette.primary.main})`,
           borderRight: (theme) => `4px solid ${theme.palette.secondary.main}`,
@@ -81,12 +82,12 @@ const About = () => {
             bgcolor: "transparent",
             borderRadius: 0,
             color: "grey.400",
-            px: 5,
+            px: { xs: 3, md: 5 },
             display: "flex",
             alignItems: "center",
             mt: 4,
             fontSize: "1.2rem",
-            width: "50%",
+            width: { xs: "100%", md: "65%" },
             boxShadow: "none",
           }}
         >
@@ -101,8 +102,10 @@ const About = () => {
         <Box
           component={"img"}
           src={me}
-          width="30%"
-          sx={{ borderLeft: "1px solid white" }}
+          sx={{
+            width: { xs: "100%", md: "35%" },
+            borderLeft: "1px solid white",
+          }}
         />
       </Paper>
 
@@ -139,7 +142,7 @@ const About = () => {
           borderLeft: (theme) => `4px solid ${theme.palette.secondary.main}`,
           borderRadius: 0,
           color: "grey.400",
-          px: 5,
+          px: { xs: 3, md: 5 },
           py: 3,
           mt: 4,
           fontSize: "1.2rem",
@@ -277,11 +280,11 @@ const About = () => {
             boxShadow: "none",
             borderRadius: 0,
             color: "grey.400",
-            px: 5,
+            px: { xs: 3, md: 5 },
             py: 3,
             mt: 4,
             fontSize: "1.2rem",
-            width: { xs: "100%", md: "50%" },
+            width: { xs: "100%", md: "35%" },
           }}
         >
           <Box>
@@ -424,7 +427,7 @@ const About = () => {
               }}
             >
               <Typography component={"h3"} variant="h5">
-                Massenger
+                Messenger
               </Typography>
               <Typography
                 component={"h3"}

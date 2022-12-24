@@ -7,10 +7,11 @@ const Map = () => {
   return (
     <Box
       sx={{
-        width: { xs: "100%", md: "50%", background: `url(${loading})` },
+        width: { xs: "100%", md: "65%", background: `url(${loading})` },
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
         backgroundSize: "2rem",
+        borderLeft: "1px solid white",
       }}
     >
       <Box
