@@ -1,6 +1,6 @@
 # Hi and Welcome! I am a programmer.
 
-## Web-developer || Frontend Web-developer || ## Backend Web-developer || React-Developer || MERN-stack Developer
+## Web-developer || Frontend Web-developer || Backend Web-developer || React-Developer || MERN-stack Developer
 
 :globe_with_meridians: Web Development:  
 :ballot_box_with_check: HTML :ballot_box_with_check: CSS :ballot_box_with_check: JavaScript :ballot_box_with_check: Python :ballot_box_with_check: React :ballot_box_with_check: Node.js :ballot_box_with_check: Express.js :ballot_box_with_check: MongoDB :ballot_box_with_check: Flask :ballot_box_with_check: PostgreSQL
