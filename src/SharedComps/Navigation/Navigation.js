@@ -16,7 +16,7 @@ import Button from "@mui/material/Button";
 import { keyframes, styled } from "@mui/material";
 import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
-import { Height } from "@mui/icons-material";
+import FileDownloadIcon from "@mui/icons-material/FileDownload";
 
 const drawerWidth = 240;
 const navItems = ["Home", "About", "Contact", "Blogs"];
@@ -172,13 +172,6 @@ function Navigation(props) {
                         pathname,
                         `/${item !== "Home" ? item.toLowerCase() : ""}`
                       );
-                      // setNavigating({
-                      //   state: true,
-                      //   goingFrom: pathname,
-                      //   goingTo: `/${
-                      //     item !== "Home" ? item.toLowerCase() : ""
-                      //   }`,
-                      // });
                     }}
                     key={item}
                     sx={{
@@ -197,15 +190,21 @@ function Navigation(props) {
           </Box>
 
           <Btn
+            startIcon={<FileDownloadIcon />}
             onClick={handleDownload}
             variant="outlined"
             color="secondary"
             sx={{
               right: { xs: 10, sm: 0, md: 50 },
-              display: { xs: "none", md: "inline-flex" },
+              display: {
+                xs: "none",
+                md: "inline-flex",
+                textTransform: "capitalize",
+                fontSize: "1rem",
+              },
             }}
           >
-            Download Resume
+            Resume
           </Btn>
         </Toolbar>
       </AppBar>

@@ -1,0 +1,7 @@
+.stop-shake {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0) scale(1, 1);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transform: translateZ(0) scale(1, 1);
+}

@@ -1,8 +1,8 @@
 import React from "react";
-import { Copyright, Facebook, WhatsApp } from "@mui/icons-material";
+import { Copyright, Instagram, Twitter } from "@mui/icons-material";
+
 import { Box, Container, Typography } from "@mui/material";
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
-import { BsMessenger } from "react-icons/bs";
 
 const Footer = () => {
   return (
@@ -42,18 +42,17 @@ const Footer = () => {
               mt: "1rem",
             }}
           >
-            <BsMessenger
+            <Twitter
               onClick={(event) => {
                 event.preventDefault();
-                window.open("http://m.me/KhanFahimFaisal", "_blank");
+                window.open("https://twitter.com/_Fahim_Faisal", "_blank");
               }}
-              color="white"
-              style={{ fontSize: "2rem", cursor: "pointer" }}
+              style={{ color: "white", fontSize: "2rem", cursor: "pointer" }}
             />
-            <WhatsApp
+            <Instagram
               onClick={(event) => {
                 event.preventDefault();
-                window.open("https://wa.me/8801871461409?text=", "_blank");
+                window.open("https://www.instagram.com/rage.cave/", "_blank");
               }}
               sx={{ color: "white", fontSize: "2.3rem", cursor: "pointer" }}
             />

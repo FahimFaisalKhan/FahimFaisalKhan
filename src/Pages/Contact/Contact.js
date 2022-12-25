@@ -15,6 +15,7 @@ import {
 import React, { useContext, useEffect, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { MyLoader } from "../../contexts/LoaderContext";
+import Touch from "./Touch/Touch";
 
 const Contact = () => {
   const { setLoading } = useContext(MyLoader);
@@ -45,7 +46,12 @@ const Contact = () => {
   };
   return (
     <Box sx={{ mx: 0, width: "100%", minHeight: "100vh" }}>
-      <Grid container component="main" sx={{ height: "100vh", width: "100%" }}>
+      <Touch />
+      <Grid
+        container
+        component="main"
+        sx={{ height: "100vh", width: "100%", mt: 12 }}
+      >
         <Grid
           item
           xs={12}
@@ -68,9 +74,9 @@ const Contact = () => {
             <Typography
               component="h1"
               variant="h5"
-              sx={{ color: "secondary.main" }}
+              sx={{ color: "secondary.main", fontSize: "1.8rem" }}
             >
-              Write Your message Below
+              Leave a messeage
             </Typography>
             <Box
               ref={form}
@@ -80,7 +86,7 @@ const Contact = () => {
               sx={{ mt: 1, minWidth: { lg: "80rem" }, width: { lg: "80rem" } }}
             >
               <InputLabel sx={{ color: "info.main" }} htmlFor="user_name">
-                Name
+                Your Name
               </InputLabel>
               <TextField
                 margin="normal"

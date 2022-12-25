@@ -20,6 +20,8 @@ import React, { useEffect, useState } from "react";
 import me from "../../../Static/Images/me.png";
 import { color, fontSize, height, keyframes, positions } from "@mui/system";
 import { fontGrid } from "@mui/material/styles/cssUtils";
+import CusButton from "./CusButton/CusButton";
+import { Link } from "react-router-dom";
 
 const MyBanner = styled(Box)(
   ({ theme }) =>
@@ -72,7 +74,7 @@ const Banner = () => {
   const moveinUp = keyframes`0%{
     content:"Full-Stack Web Developer";
     opacity : 0;
-    transform:translateY(8rem);
+    transform:translateY(5rem);
   }
   27.5%{
     content:"Full-Stack Web Developer";
@@ -98,7 +100,7 @@ const Banner = () => {
   34%{
     content:"Front-end Web Developer";
     opacity : 0;
-    transform:translateY(8rem);
+    transform:translateY(5rem);
   }
   61.5%{
     content:"Front-end Web Developer";
@@ -123,7 +125,7 @@ const Banner = () => {
   67%{
     content:"Back-end Web Developer";
   
-    transform:translateY(8rem);
+    transform:translateY(5rem);
     opacity : 0;
   }
   93.5%{
@@ -224,10 +226,16 @@ const Banner = () => {
                 opacity: 0,
                 height: "100%",
                 position: "absolute",
-                animation: `${moveinUp} 10s infinite ease-in-out`,
+                animation: `${moveinUp} 12s infinite ease-in-out`,
               },
             }}
           ></Typography>
+
+          <Box sx={{ pl: 1 }}>
+            <Link to={"/contact"}>
+              <CusButton />
+            </Link>
+          </Box>
         </div>
 
         <ImageList

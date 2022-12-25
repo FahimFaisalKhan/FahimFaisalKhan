@@ -1,0 +1,170 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:200,900");
+
+:root {
+  --content: "Hire me";
+}
+
+/* html,
+body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #141218;
+} */
+
+.my-btn {
+  position: relative;
+  padding: 10px 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+
+  font-family: "Source Code Pro";
+  font-weight: 900;
+  text-transform: capitalize;
+  font-size: 1.25rem;
+  color: #00072d;
+
+  background-color: #03a9f4;
+  box-shadow: hsla(210, 40%, 52%, 0.4) 2px 2px 22px;
+  border-radius: 4px;
+  z-index: 0;
+  overflow: hidden;
+  transition: all 1s;
+}
+
+.my-btn:focus {
+  outline-color: transparent;
+  box-shadow: #03a9f4 2px 2px 22px;
+  color: white;
+}
+
+.right::after,
+.my-btn::after {
+  content: "Hire me";
+  display: block;
+  position: absolute;
+  white-space: nowrap;
+  padding: 40px 45px;
+  pointer-events: none;
+}
+
+.my-btn::after {
+  font-weight: 200;
+  top: -30px;
+  left: -20px;
+  padding: 40px 40px;
+}
+
+.right,
+.left {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+.right {
+  left: 66%;
+}
+.left {
+  right: 66%;
+}
+.right::after {
+  top: -30px;
+  left: calc(-66% - 10px);
+
+  background-color: #141218;
+  color: transparent;
+  transition: transform 0.4s ease-out;
+  transform: translate(0, -90%) rotate(0deg);
+}
+
+.my-btn:hover {
+  color: white;
+}
+.my-btn:hover .right::after {
+  transform: translate(0, -47%) rotate(0deg);
+}
+
+.my-btn .right:hover::after {
+  transform: translate(0, -50%) rotate(-7deg);
+}
+
+.my-btn .left:hover ~ .right::after {
+  transform: translate(0, -50%) rotate(7deg);
+}
+
+/* bubbles */
+.my-btn::before {
+  content: "";
+  pointer-events: none;
+  opacity: 0.6;
+  background: radial-gradient(
+      circle at 20% 35%,
+      transparent 0,
+      transparent 2px,
+      #00072d 3px,
+      #00072d 4px,
+      transparent 4px
+    ),
+    radial-gradient(
+      circle at 75% 44%,
+      transparent 0,
+      transparent 2px,
+      #00072d 3px,
+      #00072d 4px,
+      transparent 4px
+    ),
+    radial-gradient(
+      circle at 46% 52%,
+      transparent 0,
+      transparent 4px,
+      #00072d 5px,
+      #00072d 6px,
+      transparent 6px
+    );
+
+  width: 100%;
+  height: 300%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  animation: bubbles 5s linear infinite both;
+}
+.my-btn:hover::before {
+  background: radial-gradient(
+      circle at 20% 35%,
+      transparent 0,
+      transparent 2px,
+      white 3px,
+      white 4px,
+      transparent 4px
+    ),
+    radial-gradient(
+      circle at 75% 44%,
+      transparent 0,
+      transparent 2px,
+      white 3px,
+      white 4px,
+      transparent 4px
+    ),
+    radial-gradient(
+      circle at 46% 52%,
+      transparent 0,
+      transparent 4px,
+      white 5px,
+      white 6px,
+      transparent 6px
+    );
+}
+
+@keyframes bubbles {
+  from {
+    transform: translate();
+  }
+  to {
+    transform: translate(0, -66.666%);
+  }
+}
