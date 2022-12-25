@@ -20,7 +20,7 @@ const FrameWork = ({ frameworks }) => {
         container
         rowSpacing={{ xs: 6, lg: 12 }}
         columnSpacing={{ xs: 6, lg: 12 }}
-        sx={{ px: { sm: 5 }, justifyContent: "center" }}
+        sx={{ px: { xs: 2, sm: 5 }, justifyContent: "center" }}
       >
         {frameworks.map((fw, index) => (
           <Grid key={index} item xs={12} sm={6} lg={3}>
